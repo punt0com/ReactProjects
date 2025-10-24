@@ -1,4 +1,4 @@
-export function Example({ children,onBtnClicked,onBtnClickedArrow }) {
+export function Example({ children,onBtnClickedArrow }) {
 
   return (
     <li>

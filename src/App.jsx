@@ -12,7 +12,6 @@ function App() {
       <main>
         <CoreConcepts />
         <h2>Time to get started!</h2>
-
         <Examples />
       </main>
     </>

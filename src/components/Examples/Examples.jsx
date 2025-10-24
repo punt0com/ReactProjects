@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Example } from "../Example/Example";
 import { ExamplesData } from "../../assets/data";
+import { capitalice } from "../../utils/misc";
+import { Section } from "../Common/Section/Section";
 
 export function Examples() {
+  const allKeys = Object.keys(ExamplesData);
   const [selectedTopic, setSelectedTopic] = useState(undefined);
 
   const onButtonClickArrowFnc = (selectedBtn) => {
@@ -10,6 +13,7 @@ export function Examples() {
   };
 
   let tabContent = <p>Please Select a Topic.</p>;
+
   if (selectedTopic) {
     tabContent = (
       <div id="tab-content">
@@ -23,21 +27,13 @@ export function Examples() {
   }
 
   return (
-    <section id="examples">
-      <h2>Examples</h2>
+    <Section id="examples" title="Examples">
       <menu>
-        <Example onBtnClickedArrow={() => onButtonClickArrowFnc("components")}>
-          Components
-        </Example>
-        <Example onBtnClickedArrow={() => onButtonClickArrowFnc("jsx")}>
-          JSX
-        </Example>
-        <Example onBtnClickedArrow={() => onButtonClickArrowFnc("state")}>
-          State
-        </Example>
-        <Example onBtnClickedArrow={() => onButtonClickArrowFnc("props")}>
-          Props
-        </Example>
+        {allKeys.map((key) => (
+          <Example onBtnClickedArrow={() => onButtonClickArrowFnc(key)}>
+            {capitalice(key)}
+          </Example>
+        ))}
       </menu>
 
       {/* {!selectedTopic ? (
@@ -53,6 +49,6 @@ export function Examples() {
           )} */}
 
       {tabContent}
-    </section>
+    </Section>
   );
 }

@@ -1,21 +1,17 @@
 import "./CoreConcepts.css";
 import { CoreConcept } from "../CoreConcept/CoreConcept";
 import { CoreConceptsData } from "../../assets/data";
+import { Section } from "../Common/Section/Section";
 
-export function CoreConcepts({ img, title, description }) {
+export function CoreConcepts() {
   return (
-    <section id="core-concepts">
-      <h2>Core Concepts</h2>
+    <Section id="core-concepts" title="Core Concepts">
       <ul>
         {CoreConceptsData.map((concept, index) => (
           <CoreConcept key={index} {...concept} />
         ))}
-
-        {/* <CoreConcept {...CoreConceptsData[1]} /> */}
-        {/* <CoreConcept title="Props" description="The core UI Building block" img={components} />
-                <CoreConcept title="Components" description="The core UI Building block" img={components} />
-                <CoreConcept title="Components" description="The core UI Building block" img={components} /> */}
+        {/* <CoreConcept title="Props" description="The core UI Building block" img={components} /> */}
       </ul>
-    </section>
+    </Section>
   );
 }

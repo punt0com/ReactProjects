@@ -27,7 +27,7 @@ export function Examples() {
   }
 
   return (
-    <Section id="examples" title="Examples">
+    <Section id="examples" title="Examples" titleContainer="h5">
       <menu>
         {allKeys.map((key) => (
           <Example onBtnClickedArrow={() => onButtonClickArrowFnc(key)}>
